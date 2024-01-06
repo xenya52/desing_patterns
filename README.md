@@ -1,0 +1,1 @@
+Examples for various desing patterns, written in Rust 
