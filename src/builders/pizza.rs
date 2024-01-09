@@ -1,7 +1,7 @@
 use crate::{
-    pizza:Pizza,
-    ingredients::{PizzaType,Dough,Cheese, self}
-}
+    pizza::Pizza,
+    ingredients::{PizzaType,Dough,self}
+};
 
 use super::Builder;
 
@@ -12,7 +12,7 @@ pub struct PizzaBuilder {
     pizza_type: Option<PizzaType>,
     dough: Option<Dough>,
     cheese: Option<Cheese>,
-    topping_amount: Option<u16>,
+    topping_amount: u16,
 }
 
 impl Builder for PizzaBuilder {
@@ -23,9 +23,6 @@ impl Builder for PizzaBuilder {
     }
     fn set_dough(&mut self, _dough: Dough) {
         self.dough = Some(self.dough);
-    }
-    fn set_cheese(&mut self, _cheese: Cheese) {
-        self.cheese = Some(_cheese);
     }
     fn set_topping_amount(&mut self, _topping_amount: u16) {
         self.topping_amount = _topping_amount;
