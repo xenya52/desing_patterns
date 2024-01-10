@@ -12,5 +12,5 @@ pub trait Builder {
     fn build(self) -> Self::OutputType;
 }
 
-pub use pizza::PizzaBuilder;
+//pub use pizza::PizzaBuilder;
 pub use pizza_manual::PizzaManualBuilder;
