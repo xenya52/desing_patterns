@@ -1,5 +1,5 @@
-use crate{
-    pizza::Pizza,
+use crate::{
+    pizzas::Pizza,
     ingredients::{PizzaType,Dough,self}
 };
 
@@ -11,7 +11,7 @@ pub const DEFAULT_TOMATO_SAUCE: u32 = 5u32;
 pub struct PizzaBuilder {
     pizza_type: Option<PizzaType>,
     dough: Option<Dough>,
-    topping_amount: u16,
+    topping_amount: Option<u16>,
 }
 
 impl Builder for PizzaBuilder {
@@ -21,10 +21,10 @@ impl Builder for PizzaBuilder {
         self.pizza_type = Some(_pizza_type);
     }
     fn set_dough(&mut self, _dough: Dough) {
-        self.dough = Some(self.dough);
+        self.dough = self.dough;
     }
     fn set_topping_amount(&mut self, _topping_amount: u16) {
-        self.topping_amount = _topping_amount;
+        self.topping_amount = Some(_topping_amount);
     }
     fn build(self) -> Pizza {
         Pizza::new(

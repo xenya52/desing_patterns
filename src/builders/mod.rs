@@ -1,4 +1,4 @@
-mod pizza;
+mod pizza_builder;
 mod pizza_manual;
 
 use crate::ingredients::{PizzaType,Dough};
@@ -14,3 +14,4 @@ pub trait Builder {
 
 //pub use pizza::PizzaBuilder;
 pub use pizza_manual::PizzaManualBuilder;
+pub use pizza_builder::PizzaBuilder;

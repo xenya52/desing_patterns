@@ -1,5 +1,5 @@
 use crate::{
-    pizza::Manual,
+    pizzas::Manual,
     ingredients::{PizzaType, Dough},
 };
 
@@ -12,15 +12,18 @@ pub struct PizzaManualBuilder {
     topping_amount: Option<u16>,
 }
 impl Builder for PizzaManualBuilder {
-    type OutputType = Pizza;
+    type OutputType = Manual;
 
     fn set_pizza_type(&mut self, _pizza_type: PizzaType) {
         self.pizza_type = Some(_pizza_type);
     }
     fn set_dough(&mut self, _dough: Dough) {
-        self.dough = Some(self.dough);
+        self.dough = self.dough;
     }
-    fn build(self) -> Pizza {
+    fn set_topping_amount(&mut self, _topping_amount: u16) {
+        self.topping_amount = Some(_topping_amount);
+    }
+    fn build(self) -> Manual {
         Manual::new(
             self.pizza_type.expect("Set a pizza type!"),
             self.dough.expect("Set a dough!"),
